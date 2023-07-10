@@ -15,7 +15,7 @@ import { Router, RouterLink } from '@angular/router';
 export class AdicionarUserComponent implements OnInit {
   formCliente!: FormGroup;
   clientes:any = [];
-  formInvalid:boolean = false;
+  formInvalid!:boolean;
 
   constructor(private formBuilder: FormBuilder, private router: Router) {}
 
@@ -35,11 +35,10 @@ export class AdicionarUserComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.formCliente.value);
     if(this.formCliente.value.nome == null || this.formCliente.value.modelo == null ||
       this.formCliente.value.telefone == null || this.formCliente.value.placa == null ||
       this.formCliente.value.valorPgt == null || this.formCliente.value.dataPgt == null ){
-        this.formInvalid = true
+        this.formInvalid = true;
       } else{
         let clientesLocalStorage = localStorage.getItem('clientes')
         console.log(clientesLocalStorage);
@@ -48,6 +47,7 @@ export class AdicionarUserComponent implements OnInit {
         this.clientes.push(this.formCliente.value)
         localStorage.setItem('clientes', JSON.stringify(this.clientes));
         this.router.navigate(['']);
+        this.formInvalid=false;
       }
 
 
@@ -55,7 +55,7 @@ export class AdicionarUserComponent implements OnInit {
 }
 
 export class Cliente {
-nome:string = '';
+nome!:string;
 email!: string;
 telefone!:number;
 modelo!:string ;
