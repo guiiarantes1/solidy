@@ -4,23 +4,16 @@
   </div>
 
   <div class="inputs">
-    <form>
+    <form [formGroup]="formCliente" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="inputName">Nome</label>
         <input
           type="text"
           class="form-control"
+          name="nome"
+          formControlName="nome"
           id="inputName"
           placeholder="Digite o Nome"
-        />
-      </div>
-      <div class="form-group">
-        <label for="InputEmail">Email</label>
-        <input
-          type="email"
-          class="form-control"
-          id="InputEmail"
-          placeholder="Digite o email"
         />
       </div>
       <div class="form-group">
@@ -28,6 +21,8 @@
         <input
           type="tel"
           class="form-control"
+          formControlName="telefone"
+          name="telefone"
           id="inputTelefone"
           placeholder="Digite o Telefone"
         />
@@ -37,6 +32,8 @@
         <input
           type="text"
           class="form-control"
+          formControlName="modelo"
+          name="modelo"
           id="inputVeiculo"
           placeholder="Digite o Modelo do Veículo"
         />
@@ -46,15 +43,18 @@
         <input
           type="text"
           class="form-control"
+          formControlName="placa"
           id="inputPlaca"
           placeholder="Digite a Placa do Veículo"
         />
       </div>
       <div class="form-group">
+
         <label for="inputPagamento">Valor do Pagamento</label>
         <input
           type="number"
           class="form-control"
+          formControlName="valorPgt"
           id="inputPagamento"
           placeholder="Digite o Valor do Pagamento"
         />
@@ -64,16 +64,28 @@
         <input
           type="date"
           class="form-control"
+          formControlName="dataPgt"
           id="inputData"
           placeholder="Selecione a data a receber"
         />
       </div>
     </form>
 
-
     <div class="buttons">
-      <a routerLink=""><button type="submit" class="btn btn-outline-danger">Cancelar</button></a>
-      <button type="submit" class="btn btn-primary">Cadastrar</button>
+      <a routerLink=""
+        ><button type="submit" class="btn btn-outline-danger">
+          Cancelar
+        </button></a
+      >
+      <button
+        (click)="onSubmit()"
+        type="submit"
+        value="Salvar"
+        class="btn btn-primary"
+      >
+        Cadastrar
+      </button>
+
     </div>
   </div>
 </div>

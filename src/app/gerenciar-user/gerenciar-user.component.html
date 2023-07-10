@@ -1,0 +1,26 @@
+<div class="main">
+  <div class="header">
+    <h3>Gerenciar Associados</h3>
+  </div>
+
+  <div class="accordion accordion-flush" id="accordionFlushExample"*ngFor="let cliente of clientes; index as i">
+    <div class="accordion-item" >
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#'+ i" aria-expanded="false" aria-controls="flush-collapse1">
+          {{cliente.nome}}
+        </button>
+      </h2>
+      <div id="{{i}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <ul>
+            <li>Telefone: {{cliente.telefone}} {{i}}</li>
+            <li>Veículo: {{cliente.modelo}}</li>
+            <li>Placa: {{cliente.placa}}</li>
+            <li>Valor da Adesão: R$ {{cliente.valorPgt}}</li>
+            <li>Data do Pagamento: {{cliente.dataPgt}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

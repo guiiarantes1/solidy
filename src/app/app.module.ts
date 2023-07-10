@@ -13,6 +13,7 @@ import { AdicionarUserComponent } from './adicionar-user/adicionar-user.componen
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { GerenciarUserComponent } from './gerenciar-user/gerenciar-user.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    AdicionarUserComponent
+    AdicionarUserComponent,
+    GerenciarUserComponent
   ],
   imports: [
     BrowserModule,
