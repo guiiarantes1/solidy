@@ -21,6 +21,7 @@ export class AdicionarUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm(new Cliente());
+    this.formInvalid=false;
   }
 
   createForm(cliente: Cliente) {
@@ -46,7 +47,6 @@ export class AdicionarUserComponent implements OnInit {
         console.log(this.clientes)
         this.clientes.push(this.formCliente.value)
         localStorage.setItem('clientes', JSON.stringify(this.clientes));
-        this.formInvalid=false;
       }
 
 
@@ -54,8 +54,7 @@ export class AdicionarUserComponent implements OnInit {
 }
 
 export class Cliente {
-nome!:string;
-email!: string;
+nome!:string ;
 telefone!:number;
 modelo!:string ;
 placa!:string ;

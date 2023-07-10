@@ -14,6 +14,7 @@ id:any;
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.clientes)
     let clientesLocalStorage = localStorage.getItem('clientes')
     console.log(clientesLocalStorage);
     this.clientes = clientesLocalStorage == null ? [] : JSON.parse(clientesLocalStorage)

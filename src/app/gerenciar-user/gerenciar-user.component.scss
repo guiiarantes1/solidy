@@ -16,6 +16,23 @@
     margin-bottom: 25px;
   }
 
+  .vazio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    a{
+      text-decoration: none;
+      color: blue;
+    }
+    img{
+  width: 40%;
+  margin-bottom: 40px;
+    }
+    .ops{
+      font-size: 16px;
+    }
+  }
+
   .accordion{
     margin: 0px 0 0px 0;
 
