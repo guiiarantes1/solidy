@@ -17,7 +17,6 @@ export class AdicionarUserComponent implements OnInit {
   clientes:any = [];
   formInvalid:boolean = false;
 
-
   constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
