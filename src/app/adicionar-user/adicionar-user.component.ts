@@ -37,7 +37,7 @@ export class AdicionarUserComponent implements OnInit {
 
   onSubmit() {
     console.log(this.formCliente.value);
-    if(this.formCliente.value.nome == null || this.formCliente.value.email == null ||
+    if(this.formCliente.value.nome == null || this.formCliente.value.modelo == null ||
       this.formCliente.value.telefone == null || this.formCliente.value.placa == null ||
       this.formCliente.value.valorPgt == null || this.formCliente.value.dataPgt == null ){
         this.formInvalid = true

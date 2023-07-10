@@ -15,7 +15,7 @@
           id="inputName"
           placeholder="Digite o Nome"
         >
-        <span class="text-muted" *ngIf="formInvalid || formCliente.controls['nome']?.touched"> * Nome é obrigatório!</span>
+        <span class="text-muted" *ngIf="formInvalid && formCliente.controls['nome']?.touched"> * Nome é obrigatório!</span>
       </div>
 
       <div class="form-group">
@@ -28,7 +28,7 @@
           id="inputTelefone"
           placeholder="Digite o Telefone"
         >
-        <span class="text-muted" *ngIf="formInvalid || formCliente.controls['telefone']?.touched"> * Telefone é obrigatório!</span>
+        <span class="text-muted" *ngIf="formInvalid && formCliente.controls['telefone']?.touched"> * Telefone é obrigatório!</span>
       </div>
       <div class="form-group">
         <label for="inputVeiculo">Modelo do Veículo</label>
@@ -40,7 +40,7 @@
           id="inputVeiculo"
           placeholder="Digite o Modelo do Veículo"
         >
-        <span class="text-muted" *ngIf="formInvalid || formCliente.controls['modelo']?.touched"> * Modelo é obrigatório!</span>
+        <span class="text-muted" *ngIf="formInvalid && formCliente.controls['modelo']?.touched"> * Modelo é obrigatório!</span>
       </div>
       <div class="form-group">
         <label for="inputPlaca">Placa</label>
@@ -51,7 +51,7 @@
           id="inputPlaca"
           placeholder="Digite a Placa do Veículo"
         >
-        <span class="text-muted" *ngIf="formInvalid || formCliente.controls['placa']?.touched"> * Placa é obrigatória!</span>
+        <span class="text-muted" *ngIf="formInvalid && formCliente.controls['placa']?.touched"> * Placa é obrigatória!</span>
       </div>
       <div class="form-group">
         <label for="inputPagamento" class="form-label"
@@ -67,7 +67,7 @@
             placeholder="Digite o Valor do Pagamento"
           >
         </div>
-        <span class="text-muted" *ngIf="formInvalid || formCliente.controls['valorPgt']?.touched"> * Valor do pagamento é obrigatório!</span>
+        <span class="text-muted" *ngIf="formInvalid && formCliente.controls['valorPgt']?.touched"> * Valor do pagamento é obrigatório!</span>
       </div>
 
       <div class="form-group" >
@@ -79,7 +79,7 @@
           id="inputData"
           placeholder="Selecione a data a receber"
         >
-        <span class="text-muted" *ngIf="formInvalid || formCliente.controls['dataPgt']?.touched"> * Data do pagamento é obrigatória!</span>
+        <span class="text-muted" *ngIf="formInvalid && formCliente.controls['dataPgt']?.touched"> * Data do pagamento é obrigatória!</span>
       </div>
     </form>
 
