@@ -13,8 +13,8 @@
       <div id="{{i}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body">
           <div class="edit">
-            <mat-icon>edit</mat-icon>
-            <mat-icon>delete</mat-icon>
+            <mat-icon >edit</mat-icon>
+            <mat-icon (click)="excluir(i)">delete</mat-icon>
           </div>
           <ul>
             <li *ngIf="cliente.telefone"> <strong> Telefone:</strong> {{cliente.telefone}} </li>

@@ -20,4 +20,9 @@ clientes:any=[];
     localStorage.setItem('clientes', JSON.stringify(this.clientes));
   }
 
+  excluir(index:any){
+    this.clientes.splice(index,1)
+    localStorage.setItem('clientes', JSON.stringify(this.clientes));
+  }
+
 }
