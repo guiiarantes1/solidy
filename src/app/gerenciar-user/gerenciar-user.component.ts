@@ -9,6 +9,7 @@ import { AdicionarUserComponent } from '../adicionar-user/adicionar-user.compone
 export class GerenciarUserComponent implements OnInit {
 
 clientes:any=[];
+id:any;
 
   constructor() { }
 
@@ -20,8 +21,12 @@ clientes:any=[];
     localStorage.setItem('clientes', JSON.stringify(this.clientes));
   }
 
-  excluir(index:any){
-    this.clientes.splice(index,1)
+  getId(index:any){
+    this.id = index;
+  }
+
+  confirmarExcluir(){
+    this.clientes.splice(this.id,1)
     localStorage.setItem('clientes', JSON.stringify(this.clientes));
   }
 

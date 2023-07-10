@@ -14,7 +14,7 @@
         <div class="accordion-body">
           <div class="edit">
             <mat-icon >edit</mat-icon>
-            <mat-icon (click)="excluir(i)">delete</mat-icon>
+            <mat-icon data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getId(i)">delete</mat-icon>
           </div>
           <ul>
             <li *ngIf="cliente.telefone"> <strong> Telefone:</strong> {{cliente.telefone}} </li>
@@ -30,6 +30,26 @@
           </ul>
 
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">CONFIRMAÇÃO</h5>
+      </div>
+      <div class="modal-body">
+        <p>Deseja realmente deletar este associado?</p>
+        <p>Esta ação é irreversível!</p>
+      </div>
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-seconday"(click)="confirmarExcluir()" data-bs-dismiss="modal">Deletar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+
       </div>
     </div>
   </div>

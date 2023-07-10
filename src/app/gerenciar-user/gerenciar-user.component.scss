@@ -52,4 +52,20 @@
       }
     }
   }
+
+}
+
+.modal-dialog {
+  width: fit-content;
+  display: flex;
+  margin: auto;
+
+  .modal-header{
+    h5{
+      text-align: center !important;
+      font-size: 20px;
+      margin: auto;
+      font-weight: bold;
+    }
+  }
 }
