@@ -94,10 +94,27 @@
         type="submit"
         value="Salvar"
         class="btn btn-primary"
-      >
+        data-bs-toggle="modal" data-bs-target="#exampleModal" >
         Cadastrar
       </button>
     </div>
   </div>
 </div>
 
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">CONFIRMAÇÃO</h5>
+      </div>
+      <div class="modal-body">
+        <p *ngIf="!formInvalid" class="success">Associado cadastrado com sucesso !!</p>
+        <p *ngIf="formInvalid" class="fail">ATENÇÃO</p>
+        <p *ngIf="formInvalid" class="fail2">Preencha todos os campos.</p>
+      </div>
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" routerLink="">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -46,8 +46,7 @@ export class AdicionarUserComponent implements OnInit {
         console.log(this.clientes)
         this.clientes.push(this.formCliente.value)
         localStorage.setItem('clientes', JSON.stringify(this.clientes));
-        this.router.navigate(['']);
-        this.formInvalid=false;
+                this.formInvalid=false;
       }
 
 
@@ -61,5 +60,5 @@ telefone!:number;
 modelo!:string ;
 placa!:string ;
 valorPgt!: number;
-dataPgt!: string;
+dataPgt!: Date;
 }
