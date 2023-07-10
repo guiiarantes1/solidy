@@ -113,7 +113,8 @@
         <p *ngIf="formInvalid" class="fail2">Preencha todos os campos.</p>
       </div>
       <div class="modal-footer" >
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" routerLink="">OK</button>
+        <button *ngIf="formInvalid" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+        <button *ngIf="!formInvalid" type="button" class="btn btn-primary" data-bs-dismiss="modal" routerLink="">OK</button>
       </div>
     </div>
   </div>

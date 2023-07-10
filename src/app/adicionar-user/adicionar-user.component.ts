@@ -46,7 +46,7 @@ export class AdicionarUserComponent implements OnInit {
         console.log(this.clientes)
         this.clientes.push(this.formCliente.value)
         localStorage.setItem('clientes', JSON.stringify(this.clientes));
-                this.formInvalid=false;
+        this.formInvalid=false;
       }
 
 
