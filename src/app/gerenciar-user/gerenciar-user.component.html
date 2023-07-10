@@ -13,11 +13,16 @@
       <div id="{{i}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body">
           <ul>
-            <li>Telefone: {{cliente.telefone}} {{i}}</li>
-            <li>Veículo: {{cliente.modelo}}</li>
-            <li>Placa: {{cliente.placa}}</li>
-            <li>Valor da Adesão: R$ {{cliente.valorPgt}}</li>
-            <li>Data do Pagamento: {{cliente.dataPgt}}</li>
+            <li *ngIf="cliente.telefone">Telefone: {{cliente.telefone}} </li>
+            <li *ngIf="!cliente.telefone">Telefone: Não informado. </li>
+            <li *ngIf="cliente.modelo">>Veículo: {{cliente.modelo}}</li>
+            <li *ngIf="!cliente.modelo">>Veículo: Não Informado.</li>
+            <li *ngIf="cliente.placa">>Placa: {{cliente.placa}}</li>
+            <li *ngIf="!cliente.placa">>Placa: Não informada.</li>
+            <li *ngIf="cliente.valorPgt">>Valor da Adesão: R$ {{cliente.valorPgt}}</li>
+            <li *ngIf="!cliente.valorPgt">>Valor da Adesão: Não informado.</li>
+            <li *ngIf="cliente.dataPgt">>Data do Pagamento: {{cliente.dataPgt}}</li>
+            <li *ngIf="!cliente.dataPgt">>Data do Pagamento: Não informada.</li>
           </ul>
         </div>
       </div>
