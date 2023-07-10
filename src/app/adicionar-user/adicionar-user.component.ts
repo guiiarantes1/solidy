@@ -5,6 +5,7 @@ import {
   Validators,
   FormBuilder,
 } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-adicionar-user',
   templateUrl: './adicionar-user.component.html',
@@ -15,7 +16,7 @@ export class AdicionarUserComponent implements OnInit {
   clientes:any = [];
 
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.createForm(new Cliente());
@@ -41,6 +42,7 @@ export class AdicionarUserComponent implements OnInit {
     console.log(this.clientes)
     this.clientes.push(this.formCliente.value)
     localStorage.setItem('clientes', JSON.stringify(this.clientes));
+    this.router.navigate(['']);
   }
 }
 
