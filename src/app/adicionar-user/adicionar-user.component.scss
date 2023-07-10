@@ -5,6 +5,8 @@
   flex-direction: column;
   justify-content: space-evenly;
 
+
+
     .header{
       h3{
         font-size: 35px;
@@ -30,7 +32,10 @@
         margin: 8px 0 4px 0;
         font-weight: 500;
       }
-
+      .text-muted{
+        color: red !important;
+        font-size: 12px;
+      }
       .buttons{
         display: flex;
         flex-direction: row;

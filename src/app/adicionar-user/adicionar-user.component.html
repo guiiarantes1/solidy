@@ -14,8 +14,10 @@
           formControlName="nome"
           id="inputName"
           placeholder="Digite o Nome"
-        />
+        >
+        <span class="text-muted" *ngIf="formInvalid || formCliente.controls['nome']?.touched"> * Nome é obrigatório!</span>
       </div>
+
       <div class="form-group">
         <label for="inputTelefone">Telefone</label>
         <input
@@ -25,7 +27,8 @@
           name="telefone"
           id="inputTelefone"
           placeholder="Digite o Telefone"
-        />
+        >
+        <span class="text-muted" *ngIf="formInvalid || formCliente.controls['telefone']?.touched"> * Telefone é obrigatório!</span>
       </div>
       <div class="form-group">
         <label for="inputVeiculo">Modelo do Veículo</label>
@@ -36,7 +39,8 @@
           name="modelo"
           id="inputVeiculo"
           placeholder="Digite o Modelo do Veículo"
-        />
+        >
+        <span class="text-muted" *ngIf="formInvalid || formCliente.controls['modelo']?.touched"> * Modelo é obrigatório!</span>
       </div>
       <div class="form-group">
         <label for="inputPlaca">Placa</label>
@@ -46,20 +50,28 @@
           formControlName="placa"
           id="inputPlaca"
           placeholder="Digite a Placa do Veículo"
-        />
+        >
+        <span class="text-muted" *ngIf="formInvalid || formCliente.controls['placa']?.touched"> * Placa é obrigatória!</span>
       </div>
       <div class="form-group">
+        <label for="inputPagamento" class="form-label"
+          >Valor do Pagamento</label
+        >
+        <div class="input-group">
+          <span class="input-group-text" id="inputGroupPrepend2">R$</span>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="valorPgt"
+            id="inputPagamento"
+            placeholder="Digite o Valor do Pagamento"
+          >
 
-        <label for="inputPagamento">Valor do Pagamento</label>
-        <input
-          type="number"
-          class="form-control"
-          formControlName="valorPgt"
-          id="inputPagamento"
-          placeholder="Digite o Valor do Pagamento"
-        />
+        </div>
+        <span class="text-muted" *ngIf="formInvalid || formCliente.controls['valorPgt']?.touched"> * Valor do pagamento é obrigatório!</span>
       </div>
-      <div class="form-group">
+
+      <div class="form-group" >
         <label for="inputData">Data do Pagamento</label>
         <input
           type="date"
@@ -67,7 +79,8 @@
           formControlName="dataPgt"
           id="inputData"
           placeholder="Selecione a data a receber"
-        />
+        >
+        <span class="text-muted" *ngIf="formInvalid || formCliente.controls['dataPgt']?.touched"> * Data do pagamento é obrigatória!</span>
       </div>
     </form>
 
@@ -85,7 +98,7 @@
       >
         Cadastrar
       </button>
-
     </div>
   </div>
 </div>
+

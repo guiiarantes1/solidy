@@ -6,6 +6,7 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-adicionar-user',
   templateUrl: './adicionar-user.component.html',
@@ -14,6 +15,7 @@ import { Router, RouterLink } from '@angular/router';
 export class AdicionarUserComponent implements OnInit {
   formCliente!: FormGroup;
   clientes:any = [];
+  formInvalid:boolean = false;
 
 
   constructor(private formBuilder: FormBuilder, private router: Router) {}
@@ -24,30 +26,37 @@ export class AdicionarUserComponent implements OnInit {
 
   createForm(cliente: Cliente) {
     this.formCliente = this.formBuilder.group({
-      nome: [cliente.nome],
-      email: [cliente.email],
-      telefone: [cliente.telefone],
-      modelo: [cliente.modelo],
-      placa: [cliente.placa],
-      valorPgt: [cliente.valorPgt],
-      dataPgt: [cliente.dataPgt],
+      nome: [cliente.nome, Validators.required],
+      telefone: [cliente.telefone, Validators.required],
+      modelo: [cliente.modelo, Validators.required],
+      placa: [cliente.placa, Validators.required],
+      valorPgt: [cliente.valorPgt,Validators.required],
+      dataPgt: [cliente.dataPgt, Validators.required],
     })
   }
 
   onSubmit() {
     console.log(this.formCliente.value);
-    let clientesLocalStorage = localStorage.getItem('clientes')
-    console.log(clientesLocalStorage);
-    this.clientes = clientesLocalStorage == null ? [] : JSON.parse(clientesLocalStorage)
-    console.log(this.clientes)
-    this.clientes.push(this.formCliente.value)
-    localStorage.setItem('clientes', JSON.stringify(this.clientes));
-    this.router.navigate(['']);
+    if(this.formCliente.value.nome == null || this.formCliente.value.email == null ||
+      this.formCliente.value.telefone == null || this.formCliente.value.placa == null ||
+      this.formCliente.value.valorPgt == null || this.formCliente.value.dataPgt == null ){
+        this.formInvalid = true
+      } else{
+        let clientesLocalStorage = localStorage.getItem('clientes')
+        console.log(clientesLocalStorage);
+        this.clientes = clientesLocalStorage == null ? [] : JSON.parse(clientesLocalStorage)
+        console.log(this.clientes)
+        this.clientes.push(this.formCliente.value)
+        localStorage.setItem('clientes', JSON.stringify(this.clientes));
+        this.router.navigate(['']);
+      }
+
+
   }
 }
 
 export class Cliente {
-nome!:string;
+nome:string = '';
 email!: string;
 telefone!:number;
 modelo!:string ;

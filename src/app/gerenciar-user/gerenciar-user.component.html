@@ -13,16 +13,16 @@
       <div id="{{i}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body">
           <ul>
-            <li *ngIf="cliente.telefone">Telefone: {{cliente.telefone}} </li>
-            <li *ngIf="!cliente.telefone">Telefone: Não informado. </li>
-            <li *ngIf="cliente.modelo">>Veículo: {{cliente.modelo}}</li>
-            <li *ngIf="!cliente.modelo">>Veículo: Não Informado.</li>
-            <li *ngIf="cliente.placa">>Placa: {{cliente.placa}}</li>
-            <li *ngIf="!cliente.placa">>Placa: Não informada.</li>
-            <li *ngIf="cliente.valorPgt">>Valor da Adesão: R$ {{cliente.valorPgt}}</li>
-            <li *ngIf="!cliente.valorPgt">>Valor da Adesão: Não informado.</li>
-            <li *ngIf="cliente.dataPgt">>Data do Pagamento: {{cliente.dataPgt}}</li>
-            <li *ngIf="!cliente.dataPgt">>Data do Pagamento: Não informada.</li>
+            <li *ngIf="cliente.telefone"> <strong> Telefone:</strong> {{cliente.telefone}} </li>
+            <li *ngIf="!cliente.telefone"><strong> Telefone:</strong> Não informado. </li>
+            <li *ngIf="cliente.modelo"><strong>Veículo: </strong> {{cliente.modelo}} </li>
+            <li *ngIf="!cliente.modelo"><strong>Veículo: </strong> Não Informado. </li>
+            <li *ngIf="cliente.placa"><strong>Placa: </strong> {{cliente.placa}} </li>
+            <li *ngIf="!cliente.placa"> <strong>Placa: </strong> Não informada. </li>
+            <li *ngIf="cliente.valorPgt"><strong>Valor da Adesão: </strong> R$ {{cliente.valorPgt}},00 </li>
+            <li *ngIf="!cliente.valorPgt"><strong>Valor da Adesão: </strong> Não informado. </li>
+            <li *ngIf="cliente.dataPgt"><strong>Data do Pagamento: </strong> {{cliente.dataPgt | date : 'dd/MM/yyyy'}} </li>
+            <li *ngIf="!cliente.dataPgt"><strong>Data do Pagamento: </strong> Não informada. </li>
           </ul>
         </div>
       </div>
