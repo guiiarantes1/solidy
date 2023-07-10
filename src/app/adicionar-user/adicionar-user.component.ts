@@ -22,6 +22,7 @@ export class AdicionarUserComponent implements OnInit {
   ngOnInit(): void {
     this.createForm(new Cliente());
     this.formInvalid=false;
+    console.log(this.formInvalid)
   }
 
   createForm(cliente: Cliente) {
@@ -40,6 +41,7 @@ export class AdicionarUserComponent implements OnInit {
       this.formCliente.value.telefone == null || this.formCliente.value.placa == null ||
       this.formCliente.value.valorPgt == null || this.formCliente.value.dataPgt == null ){
         this.formInvalid = true;
+        console.log(this.formInvalid)
       } else{
         let clientesLocalStorage = localStorage.getItem('clientes')
         console.log(clientesLocalStorage);
@@ -47,6 +49,8 @@ export class AdicionarUserComponent implements OnInit {
         console.log(this.clientes)
         this.clientes.push(this.formCliente.value)
         localStorage.setItem('clientes', JSON.stringify(this.clientes));
+        this.formInvalid=false;
+        console.log(this.formInvalid)
       }
 
 
