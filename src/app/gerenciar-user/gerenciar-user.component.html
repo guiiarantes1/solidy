@@ -7,36 +7,39 @@
     <p class="ops"> <strong>Ooops.</strong> Nenhum associado encontrato </p>
     <p class="novo"><a routerLink="/add">Clique aqui</a> para cadastrar um novo.</p>
   </div>
-  <div class="accordion accordion-flush" id="accordionFlushExample"*ngFor="let cliente of clientes; index as i">
-    <div class="accordion-item" >
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#'+ i" aria-expanded="false" aria-controls="flush-collapse1">
-          {{cliente.nome}}
-        </button>
-      </h2>
-      <div id="{{i}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">
-          <div class="edit">
-            <mat-icon data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="getId(i)">edit</mat-icon>
-            <mat-icon data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getId(i)">delete</mat-icon>
-          </div>
-          <ul>
-            <li *ngIf="cliente.telefone"> <strong> Telefone:</strong> {{cliente.telefone}} </li>
-            <li *ngIf="!cliente.telefone"><strong> Telefone:</strong> Não informado. </li>
-            <li *ngIf="cliente.modelo"><strong>Veículo: </strong> {{cliente.modelo}} </li>
-            <li *ngIf="!cliente.modelo"><strong>Veículo: </strong> Não Informado. </li>
-            <li *ngIf="cliente.placa"><strong>Placa: </strong> {{cliente.placa}} </li>
-            <li *ngIf="!cliente.placa"> <strong>Placa: </strong> Não informada. </li>
-            <li *ngIf="cliente.valorPgt"><strong>Valor da Adesão: </strong> R$ {{cliente.valorPgt}},00 </li>
-            <li *ngIf="!cliente.valorPgt"><strong>Valor da Adesão: </strong> Não informado. </li>
-            <li *ngIf="cliente.dataPgt"><strong>Data do Pagamento: </strong> {{cliente.dataPgt | date : 'dd/MM/yyyy'}} </li>
-            <li *ngIf="!cliente.dataPgt"><strong>Data do Pagamento: </strong> Não informada. </li>
-          </ul>
+  <div class="body">
+    <div class="accordion accordion-flush" id="accordionFlushExample"*ngFor="let cliente of clientes; index as i">
+      <div class="accordion-item" >
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#'+ i" aria-expanded="false" aria-controls="flush-collapse1">
+            {{cliente.nome}}
+          </button>
+        </h2>
+        <div id="{{i}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <div class="edit">
+              <mat-icon data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="getId(i)">edit</mat-icon>
+              <mat-icon data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getId(i)">delete</mat-icon>
+            </div>
+            <ul>
+              <li *ngIf="cliente.telefone"> <strong> Telefone:</strong> {{cliente.telefone}} </li>
+              <li *ngIf="!cliente.telefone"><strong> Telefone:</strong> Não informado. </li>
+              <li *ngIf="cliente.modelo"><strong>Veículo: </strong> {{cliente.modelo}} </li>
+              <li *ngIf="!cliente.modelo"><strong>Veículo: </strong> Não Informado. </li>
+              <li *ngIf="cliente.placa"><strong>Placa: </strong> {{cliente.placa}} </li>
+              <li *ngIf="!cliente.placa"> <strong>Placa: </strong> Não informada. </li>
+              <li *ngIf="cliente.valorPgt"><strong>Valor da Adesão: </strong> R$ {{cliente.valorPgt}},00 </li>
+              <li *ngIf="!cliente.valorPgt"><strong>Valor da Adesão: </strong> Não informado. </li>
+              <li *ngIf="cliente.dataPgt"><strong>Data do Pagamento: </strong> {{cliente.dataPgt | date : 'dd/MM/yyyy'}} </li>
+              <li *ngIf="!cliente.dataPgt"><strong>Data do Pagamento: </strong> Não informada. </li>
+            </ul>
 
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 </div>
 
 <!-- Modal EXLUIR -->
@@ -69,7 +72,7 @@
       <div class="modal-body">
         <div class="inputs" >
 
-          <form [formGroup]="formCliente"  >
+          <form [formGroup]="formClienteEditado"  >
             <div class="form-group">
               <label for="inputName">Nome</label>
               <input
@@ -77,6 +80,7 @@
                 class="form-control"
                 name="nome"
                 id="inputName"
+                formControlName="nome"
                 placeholder="Digite o Nome"
                 [value]=clienteAtual.nome
               />
@@ -155,7 +159,7 @@
       </div>
       <div class="modal-footer" >
         <button type="button" class="btn btn-seconday" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Editar</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="editar()">Editar</button>
 
       </div>
     </div>
