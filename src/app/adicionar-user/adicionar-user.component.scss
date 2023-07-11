@@ -8,6 +8,9 @@
 
 
     .header{
+      background-color: rgb(197, 200, 198);
+      width: 100%;
+
       h3{
         font-size: 35px;
         text-align: center;
@@ -28,9 +31,15 @@
       margin: auto;
       margin-top: 15px;
 
+      input{
+        box-shadow: 0 5px 8px rgb(0 0 0 / 10%);
+        border: 1px solid rgba(var(--lightGrey), 1);
+      }
+
+
       label{
         margin: 8px 0 4px 0;
-        font-weight: 500;
+        font-weight: 600;
       }
       .text-muted{
         color: red !important;
