@@ -26,6 +26,9 @@ export class GerenciarUserComponent implements OnInit {
     this.clientes =
     clientesLocalStorage == null ? [] : JSON.parse(clientesLocalStorage);
     localStorage.setItem('clientes', JSON.stringify(this.clientes));
+    this.clientes.sort(function(a:any,b:any) {
+      return a.nome < b.nome ? -1 : a.nome > b.nome ? 1 : 0;
+  });
   }
   createForm(cliente: Cliente) {
     this.formClienteEditado = this.formBuilder.group({
@@ -40,12 +43,14 @@ export class GerenciarUserComponent implements OnInit {
 
   getId(index: any) {
     this.clienteAtual = this.clientes[index];
+    console.log(this.clientes[index])
     this.formClienteEditado.value.nome = this.clienteAtual.nome
     this.formClienteEditado.value.telefone = this.clienteAtual.telefone
     this.formClienteEditado.value.modelo = this.clienteAtual.modelo
     this.formClienteEditado.value.placa = this.clienteAtual.placa
     this.formClienteEditado.value.valorPgt = this.clienteAtual.valorPgt
     this.formClienteEditado.value.dataPgt = this.clienteAtual.dataPgt
+    console.log(this.formClienteEditado.value)
     this.id = index;
   }
 
@@ -58,13 +63,39 @@ export class GerenciarUserComponent implements OnInit {
   editar(){
     this.clienteEditado.push(this.formClienteEditado.value)
     console.log(this.clienteEditado)
-    if(this.clientes[this.id] != this.clienteEditado[this.id]){
-      this.clientes.splice(this.id, 1);
-       console.log(this.clientes)
-      this.clientes.push(this.clienteEditado[this.id])
-      console.log(this.clientes)
+    if(this.formClienteEditado.value.nome == null){
+      this.clienteEditado[0].nome = this.clienteAtual.nome;
     }else{
-      console.log('falhou')
+      console.log('nome atualizado')
     }
+    if(this.formClienteEditado.value.telefone == null){
+      this.clienteEditado[0].telefone = this.clienteAtual.telefone;
+    }else{
+      console.log('telefone atualizado')
+    }
+    if(this.formClienteEditado.value.modelo == null){
+      this.clienteEditado[0].modelo = this.clienteAtual.modelo;
+    }else{
+      console.log('modelo atualizado')
+    }
+    if(this.formClienteEditado.value.placa == null){
+      this.clienteEditado[0].placa = this.clienteAtual.placa;
+    }else{
+      console.log('placa atualizado')
+    }
+    if(this.formClienteEditado.value.valorPgt == null){
+      this.clienteEditado[0].valorPgt = this.clienteAtual.valorPgt;
+    }else{
+      console.log('dataPgt atualizado')
+    }
+    if(this.formClienteEditado.value.dataPgt == null){
+      this.clienteEditado[0].dataPgt = this.clienteAtual.dataPgt;
+    }else{
+      console.log('dataPgt atualizado')
+    }
+    this.clientes[this.id] = this.clienteEditado[0]
+
+    localStorage.setItem('clientes', JSON.stringify(this.clientes));
+    location.reload()
   }
 }

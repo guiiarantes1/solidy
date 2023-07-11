@@ -12,7 +12,7 @@
       <div class="accordion-item" >
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#'+ i" aria-expanded="false" aria-controls="flush-collapse1">
-            {{cliente.nome}}
+            {{cliente.nome | titlecase}}
           </button>
         </h2>
         <div id="{{i}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -24,9 +24,9 @@
             <ul>
               <li *ngIf="cliente.telefone"> <strong> Telefone:</strong> {{cliente.telefone}} </li>
               <li *ngIf="!cliente.telefone"><strong> Telefone:</strong> Não informado. </li>
-              <li *ngIf="cliente.modelo"><strong>Veículo: </strong> {{cliente.modelo}} </li>
+              <li *ngIf="cliente.modelo"><strong>Veículo: </strong> {{cliente.modelo | titlecase}} </li>
               <li *ngIf="!cliente.modelo"><strong>Veículo: </strong> Não Informado. </li>
-              <li *ngIf="cliente.placa"><strong>Placa: </strong> {{cliente.placa}} </li>
+              <li *ngIf="cliente.placa"><strong>Placa: </strong> {{cliente.placa | uppercase}} </li>
               <li *ngIf="!cliente.placa"> <strong>Placa: </strong> Não informada. </li>
               <li *ngIf="cliente.valorPgt"><strong>Valor da Adesão: </strong> R$ {{cliente.valorPgt}},00 </li>
               <li *ngIf="!cliente.valorPgt"><strong>Valor da Adesão: </strong> Não informado. </li>
