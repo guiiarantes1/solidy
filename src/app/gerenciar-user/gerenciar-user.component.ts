@@ -1,34 +1,54 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AdicionarUserComponent } from '../adicionar-user/adicionar-user.component';
+import {
+  AdicionarUserComponent,
+  Cliente,
+} from '../adicionar-user/adicionar-user.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-gerenciar-user',
   templateUrl: './gerenciar-user.component.html',
-  styleUrls: ['./gerenciar-user.component.scss']
+  styleUrls: ['./gerenciar-user.component.scss'],
 })
 export class GerenciarUserComponent implements OnInit {
+  formCliente!: FormGroup;
+  clientes: any = [];
+  id!: any;
 
-clientes:any=[];
-id:any;
-
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    console.log(this.clientes)
-    let clientesLocalStorage = localStorage.getItem('clientes')
+    this.createForm(new Cliente());
+
+    console.log(this.clientes);
+    let clientesLocalStorage = localStorage.getItem('clientes');
     console.log(clientesLocalStorage);
-    this.clientes = clientesLocalStorage == null ? [] : JSON.parse(clientesLocalStorage)
+    this.clientes =
+      clientesLocalStorage == null ? [] : JSON.parse(clientesLocalStorage);
+    console.log(this.clientes);
+    localStorage.setItem('clientes', JSON.stringify(this.clientes));
+  }
+  createForm(cliente: Cliente) {
+    this.formCliente = this.formBuilder.group({
+      nome: [cliente.nome, Validators.required],
+      telefone: [cliente.telefone, Validators.required],
+      modelo: [cliente.modelo, Validators.required],
+      placa: [cliente.placa, Validators.required],
+      valorPgt: [cliente.valorPgt, Validators.required],
+      dataPgt: [cliente.dataPgt, Validators.required],
+    });
+  }
+
+  getId(index: any) {
     console.log(this.clientes)
-    localStorage.setItem('clientes', JSON.stringify(this.clientes));
-  }
-
-  getId(index:any){
     this.id = index;
+    console.log(this.id)
   }
 
-  confirmarExcluir(){
-    this.clientes.splice(this.id,1)
+  confirmarExcluir() {
+    this.clientes.splice(this.id, 1);
     localStorage.setItem('clientes', JSON.stringify(this.clientes));
   }
+
 
 }

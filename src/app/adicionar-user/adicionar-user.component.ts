@@ -23,6 +23,7 @@ export class AdicionarUserComponent implements OnInit {
     this.createForm(new Cliente());
     this.formInvalid=false;
     console.log(this.formInvalid)
+
   }
 
   createForm(cliente: Cliente) {
