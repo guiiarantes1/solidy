@@ -40,7 +40,12 @@ export class GerenciarUserComponent implements OnInit {
 
   getId(index: any) {
     this.clienteAtual = this.clientes[index];
-    console.log(this.clienteAtual);
+    this.formClienteEditado.value.nome = this.clienteAtual.nome
+    this.formClienteEditado.value.telefone = this.clienteAtual.telefone
+    this.formClienteEditado.value.modelo = this.clienteAtual.modelo
+    this.formClienteEditado.value.placa = this.clienteAtual.placa
+    this.formClienteEditado.value.valorPgt = this.clienteAtual.valorPgt
+    this.formClienteEditado.value.dataPgt = this.clienteAtual.dataPgt
     this.id = index;
   }
 
@@ -52,8 +57,7 @@ export class GerenciarUserComponent implements OnInit {
 
   editar(){
     this.clienteEditado.push(this.formClienteEditado.value)
-    console.log(this.clientes[this.id])
-    console.log(this.clienteEditado[this.id])
+    console.log(this.clienteEditado)
     if(this.clientes[this.id] != this.clienteEditado[this.id]){
       this.clientes.splice(this.id, 1);
        console.log(this.clientes)
