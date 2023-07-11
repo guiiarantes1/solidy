@@ -67,19 +67,18 @@
         <h5 class="modal-title" id="exampleModalLabel">EDITAR</h5>
       </div>
       <div class="modal-body">
-        <div class="inputs">
+        <div class="inputs" >
 
-          <form [formGroup]="formCliente" >
+          <form [formGroup]="formCliente"  >
             <div class="form-group">
               <label for="inputName">Nome</label>
               <input
                 type="text"
                 class="form-control"
                 name="nome"
-                formControlName="nome"
                 id="inputName"
                 placeholder="Digite o Nome"
-                value="oi"
+                [value]=clienteAtual.nome
               />
             </div>
 
@@ -92,6 +91,7 @@
                 name="telefone"
                 id="inputTelefone"
                 placeholder="Digite o Telefone"
+                [value]=clienteAtual.telefone
               >
 
             </div>
@@ -104,6 +104,7 @@
                 name="modelo"
                 id="inputVeiculo"
                 placeholder="Digite o Modelo do Veículo"
+                [value]=clienteAtual.modelo
               >
 
             </div>
@@ -115,6 +116,7 @@
                 formControlName="placa"
                 id="inputPlaca"
                 placeholder="Digite a Placa do Veículo"
+                [value]=clienteAtual.placa
               >
 
             </div>
@@ -130,6 +132,7 @@
                   formControlName="valorPgt"
                   id="inputPagamento"
                   placeholder="Digite o Valor do Pagamento"
+                  [value]=clienteAtual.valorPgt
                 >
               </div>
 
@@ -143,6 +146,7 @@
                 formControlName="dataPgt"
                 id="inputData"
                 placeholder="Selecione a data a receber"
+                [value]=clienteAtual.dataPgt
               >
             </div>
           </form>

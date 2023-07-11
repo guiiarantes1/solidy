@@ -14,17 +14,17 @@ export class GerenciarUserComponent implements OnInit {
   formCliente!: FormGroup;
   clientes: any = [];
   id!: any;
+  clienteAtual:any = [];
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.createForm(new Cliente());
-
     console.log(this.clientes);
     let clientesLocalStorage = localStorage.getItem('clientes');
     console.log(clientesLocalStorage);
     this.clientes =
-      clientesLocalStorage == null ? [] : JSON.parse(clientesLocalStorage);
+    clientesLocalStorage == null ? [] : JSON.parse(clientesLocalStorage);
     console.log(this.clientes);
     localStorage.setItem('clientes', JSON.stringify(this.clientes));
   }
@@ -40,9 +40,9 @@ export class GerenciarUserComponent implements OnInit {
   }
 
   getId(index: any) {
-    console.log(this.clientes)
+    this.clienteAtual = this.clientes[index];
+    console.log(this.clienteAtual);
     this.id = index;
-    console.log(this.id)
   }
 
   confirmarExcluir() {
