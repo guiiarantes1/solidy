@@ -1,19 +1,14 @@
 
 .home {
-
-  height: 67%;
   a {
     text-decoration: none;
   }
-  background-color: rgba(224, 224, 224, 0.836);
   width: auto;
-  height: 550px;
   margin-top: -3px;
   padding: 10px;
 
   .cards {
     display: flex;
-    height: 100%;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -30,13 +25,13 @@
       justify-content: space-between !important;
       background-image: url(https://ee49be99e0.cbaul-cdnwnd.com/2f945ac7904363b3caed289d0e752bb7/200000003-af454af456/FUNDO%20SOLIDY.jpg?ph=ee49be99e0);
       display: flex;
-      width: 150px;
-      height: 150px;
+      width: 38vw;
+      height: 17vh;
       box-shadow: 0 5px 8px rgb(0 0 0 / 20%);
       border: 1px solid rgba(var(--lightGrey), 1);
       border-radius: 10px;
       color: whitesmoke;
-      font-size: 25px;
+      font-size: 1.3rem;
       margin: 10px;
 
       &:hover {
@@ -57,8 +52,8 @@
       justify-content: space-between !important;
       background-image: url(https://ee49be99e0.cbaul-cdnwnd.com/2f945ac7904363b3caed289d0e752bb7/200000003-af454af456/FUNDO%20SOLIDY.jpg?ph=ee49be99e0);
       display: flex;
-      width: 150px;
-      height: 150px;
+      width: 38vw;
+      height: 17vh;
       box-shadow: 0 5px 8px rgb(0 0 0 / 20%);
       border: 1px solid rgba(var(--lightGrey), 1);
       border-radius: 10px;
@@ -83,14 +78,13 @@
       justify-content: space-evenly;
       background-image: url(https://ee49be99e0.cbaul-cdnwnd.com/2f945ac7904363b3caed289d0e752bb7/200000003-af454af456/FUNDO%20SOLIDY.jpg?ph=ee49be99e0);
       display: flex;
-      width: 320px;
-      height: 130px;
+      width: 82vw;
+      height: 15vh;
       box-shadow: 0 5px 8px rgb(0 0 0 / 20%);
       border: 1px solid rgba(var(--lightGrey), 1);
       border-radius: 10px;
       color: whitesmoke;
       font-size: 25px;
-      margin-top: -190px;
       &:hover {
         cursor: pointer;
       }
