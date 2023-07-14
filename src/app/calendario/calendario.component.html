@@ -1,1 +1,30 @@
-<p>calendario works!</p>
+<div class="main">
+  <div class="header">
+    <a routerLink=""><mat-icon>keyboard_return</mat-icon></a> <h3> Calendário</h3><h2></h2>
+  </div>
+
+  <div class="body">
+    <div class="calendario-titulo">
+      <div>
+          <button class="btn btn-primary" (click)="alterarMes(-1)">ant.</button>
+      </div>
+      <div class="calendario-titulo-mes-ano">{{dataAtual | date : 'MMM yyyy'}}</div>
+      <div>
+          <button class="btn btn-primary" (click)="alterarMes(+1)">prox.</button>
+      </div>
+  </div>
+  <div class="calendario-dias">
+      <ng-container *ngFor="let dia of diasCalendario; let i = index">
+          <div *ngIf="i < 7">
+              <strong>{{ dia | date: 'EEEEE' }}</strong>
+          </div>
+      </ng-container>
+      <div *ngFor="let dia of diasCalendario; let i = index"
+          class="calendario-dia"
+          [class.calendario-quebrar-linha]="i % 7 === 0"
+          [class.calendario-dia-nao-faz-parte-mes-atual]="dataAtual.getMonth() !== dia.getMonth()">
+          {{dia | date : 'dd'}}
+      </div>
+  </div>
+  </div>
+</div>
