@@ -18,13 +18,11 @@ export class CalendarioComponent implements OnInit {
   mesAtual!:any;
   anoAtual!:any;
   dataLocal:any;
-  datasReceber:any =[];
+  datasReceber:any = [];
 
   constructor() { }
 
   ngOnInit(): void {
-
-    this.construirCalendario();
     let clientesLocalStorage = localStorage.getItem('clientes');
     this.clientes =
     clientesLocalStorage == null ? [] : JSON.parse(clientesLocalStorage);
@@ -32,9 +30,12 @@ export class CalendarioComponent implements OnInit {
     this.clientes.sort(function(a:any,b:any) {
       return a.nome < b.nome ? -1 : a.nome > b.nome ? 1 : 0;
   });
-  console.log(this.diasCalendario)
-  this.verificarDiasPgt()
+    this.verificarDiasPgt()
+    this.construirCalendario();
+
+
   this.verificarDiaAtual()
+
 
 
   }
@@ -76,20 +77,23 @@ export class CalendarioComponent implements OnInit {
 
   getId(index: any) {
     this.id =this.diasCalendario[index].getDate();
-    this.dataSelecionada = this.diasCalendario[index].getFullYear() + '-' + '0'+(this.diasCalendario[index].getMonth()+1)
-    + '-' + this.diasCalendario[index].getDate();
-    this.dataSelecionada.toString()
+    this.dataSelecionada = this.diasCalendario[index].toISOString().split('T')[0];
     this.diaSelecionado = this.id;
     this.clientesDia = this.clientes.filter((cliente:any) => cliente.dataPgt == this.dataSelecionada)
-    console.log(this.clientesDia)
-    console.log(this.dataSelecionada)
+
   }
 
   verificarDiasPgt(){
-    console.log(this.clientes[0].dataPgt )
-    console.log(this.datasReceber)
-    console.log(typeof this.datasReceber)
-    console.log(this.diasCalendario[20])
+    for(let i=0; i<this.diasCalendario.length; i++){
+      console.log(this.diasCalendario[i].toISOString().split('T')[0])
+    }
+    this.datasReceber = new Set(this.clientes.map((cliente:any) => cliente.dataPgt));
+
+    // console.log(this.clientes[0].dataPgt)
+    // console.log(this.clientes[0].dataPgt)
+    // console.log(typeof this.clientes[0].dataPgt)
+    // console.log(this.diasCalendario[26])
+    // console.log(typeof this.diasCalendario[26])
   }
 
   verificarDiaAtual(){
@@ -97,4 +101,5 @@ export class CalendarioComponent implements OnInit {
     this.diaAtual.setMinutes(0);
     this.diaAtual.setSeconds(0);
     }
+
 }

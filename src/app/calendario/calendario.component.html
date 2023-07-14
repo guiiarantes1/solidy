@@ -32,7 +32,7 @@
           dataAtual.getMonth() !== dia.getMonth()
         "
         [ngClass]="{'diaAtual': this.diaAtual.toString() == this.diasCalendario[i].toString(),
-        'diaPgt': this.clientes[0].dataPgt == this.diasCalendario[i].toString()}"
+        'diaPgt': this.datasReceber.has(dia.toISOString().split('T')[0])}"
 
         >
         <a
@@ -42,6 +42,15 @@
         >
           {{ dia | date : "dd" }}</a
         >
+      </div>
+    </div>
+
+    <div class="legenda">
+      <div class="legendaDia">
+
+      </div>
+
+      <div class="legendaPgt">
       </div>
     </div>
   </div>
