@@ -7,6 +7,16 @@
     <p class="ops"> <strong>Ooops.</strong> Nenhum associado encontrato </p>
     <p class="novo"><a routerLink="/add">Clique aqui</a> para cadastrar um novo.</p>
   </div>
+
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Search this blog">
+    <div class="input-group-append">
+      <button class="btn btn-secondary" type="button">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </div>
+
   <div class="body">
     <div class="accordion accordion-flush" id="accordionFlushExample"*ngFor="let cliente of clientes; index as i">
       <div class="accordion-item" >

@@ -36,57 +36,84 @@
       font-size: 16px;
     }
   }
-  .body {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    height: 88%;
-    .accordion {
-      margin: 0px 0 0px 0;
+  .input-group{
+    width: 90%;
+    margin: auto;
+    padding-bottom: 35px;
+  }
+  .has-search .form-control {
+    padding-left: 2.375rem;
+  }
 
-      .accordion-button {
-        background-color: white;
-        margin: auto auto 5px auto;
-        width: 93%;
-        padding: 10px 20px 10px 20px;
-        border-bottom: 1px;
-        border-style: solid;
-        border-color: rgb(197, 197, 197);
-        box-shadow: 0 5px 8px rgb(0 0 0 / 10%);
-        border: 1px solid rgba(var(--lightGrey), 1);
-        border-radius: 5px;
+  .has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+  }
+
+  .btn{
+    background-color: rgb(5, 5, 242);
+  }
+
+
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 88%;
+  .accordion {
+    margin: 0px 0 0px 0;
+
+    .accordion-button {
+      background-color: white;
+      margin: auto auto 5px auto;
+      width: 93%;
+      padding: 10px 20px 10px 20px;
+      border-bottom: 1px;
+      border-style: solid;
+      border-color: rgb(197, 197, 197);
+      box-shadow: 0 5px 8px rgb(0 0 0 / 10%);
+      border: 1px solid rgba(var(--lightGrey), 1);
+      border-radius: 5px;
+    }
+
+    .accordion-header {
+      margin: 0 !important;
+    }
+
+    .accordion-body {
+      width: 93%;
+      margin: auto;
+      padding-top: 0;
+      padding-bottom: 0;
+      display: flex;
+      flex-direction: row-reverse;
+      border-bottom: 1px solid;
+      border-color: rgb(197, 197, 197);
+    }
+
+    .edit {
+      display: flex;
+      justify-content: space-between;
+      align-self: start;
+      width: 20%;
+      margin-left: auto !important;
+      mat-icon:hover {
+        cursor: pointer;
       }
+    }
 
-      .accordion-header {
-        margin: 0 !important;
-      }
-
-      .accordion-body {
-        width: 93%;
-        margin: auto;
-        padding-top: 0;
-        padding-bottom: 0;
-        display: flex;
-        flex-direction: row-reverse;
-        border-bottom: 1px solid;
-        border-color: rgb(197, 197, 197);
-      }
-
-      .edit {
-        display: flex;
-        justify-content: space-between;
-        align-self: start;
-        width: 20%;
-        margin-left: auto !important;
-        mat-icon:hover {
-          cursor: pointer;
-        }
-      }
-
-      ul {
-        li {
-          margin-bottom: 10px;
-        }
+    ul {
+      li {
+        margin-bottom: 10px;
       }
     }
   }

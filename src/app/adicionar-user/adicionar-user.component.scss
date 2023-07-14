@@ -36,7 +36,10 @@
         border: 1px solid rgba(var(--lightGrey), 1);
       }
 
-
+      .input-group-text{
+        box-shadow: 0 5px 8px rgb(0 0 0 / 10%);
+        border: 1px solid rgba(var(--lightGrey), 1);
+      }
       label{
         margin: 8px 0 4px 0;
         font-weight: 600;

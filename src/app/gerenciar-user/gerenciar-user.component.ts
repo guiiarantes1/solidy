@@ -63,32 +63,32 @@ export class GerenciarUserComponent implements OnInit {
   editar(){
     this.clienteEditado.push(this.formClienteEditado.value)
     console.log(this.clienteEditado)
-    if(this.formClienteEditado.value.nome == null){
+    if(this.formClienteEditado.value.nome == null || this.formClienteEditado.value.nome == ''){
       this.clienteEditado[0].nome = this.clienteAtual.nome;
     }else{
       console.log('nome atualizado')
     }
-    if(this.formClienteEditado.value.telefone == null){
+    if(this.formClienteEditado.value.telefone == null || this.formClienteEditado.value.telefone == ''){
       this.clienteEditado[0].telefone = this.clienteAtual.telefone;
     }else{
       console.log('telefone atualizado')
     }
-    if(this.formClienteEditado.value.modelo == null){
+    if(this.formClienteEditado.value.modelo == null || this.formClienteEditado.value.modelo == ''){
       this.clienteEditado[0].modelo = this.clienteAtual.modelo;
     }else{
       console.log('modelo atualizado')
     }
-    if(this.formClienteEditado.value.placa == null){
+    if(this.formClienteEditado.value.placa == null || this.formClienteEditado.value.placa == ''){
       this.clienteEditado[0].placa = this.clienteAtual.placa;
     }else{
       console.log('placa atualizado')
     }
-    if(this.formClienteEditado.value.valorPgt == null){
+    if(this.formClienteEditado.value.valorPgt == null || this.formClienteEditado.value.valorPgt == ''){
       this.clienteEditado[0].valorPgt = this.clienteAtual.valorPgt;
     }else{
       console.log('dataPgt atualizado')
     }
-    if(this.formClienteEditado.value.dataPgt == null){
+    if(this.formClienteEditado.value.dataPgt == null || this.formClienteEditado.value.dataPgt == ''){
       this.clienteEditado[0].dataPgt = this.clienteAtual.dataPgt;
     }else{
       console.log('dataPgt atualizado')
