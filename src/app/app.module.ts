@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,7 +15,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { GerenciarUserComponent } from './gerenciar-user/gerenciar-user.component';
 import { CalendarioComponent } from './calendario/calendario.component';
-
+import { registerLocaleData } from '@angular/common';
+import localeBr from '@angular/common/locales/pt';
+registerLocaleData(localeBr, 'pt')
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +37,9 @@ import { CalendarioComponent } from './calendario/calendario.component';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
