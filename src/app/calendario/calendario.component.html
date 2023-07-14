@@ -1,30 +1,141 @@
 <div class="main">
   <div class="header">
-    <a routerLink=""><mat-icon>keyboard_return</mat-icon></a> <h3> Calendário</h3><h2></h2>
+    <a routerLink=""><mat-icon>keyboard_return</mat-icon></a>
+    <h3>Calendário</h3>
+    <h2></h2>
   </div>
+
 
   <div class="body">
     <div class="calendario-titulo">
       <div>
-          <button class="btn btn-primary" (click)="alterarMes(-1)">ant.</button>
+        <button class="btn btn-primary" (click)="alterarMes(-1)">ant.</button>
       </div>
-      <div class="calendario-titulo-mes-ano">{{dataAtual | date : 'MMM yyyy'}}</div>
+      <div class="calendario-titulo-mes-ano">
+        {{ dataAtual | date : "MMM yyyy" }}
+      </div>
       <div>
-          <button class="btn btn-primary" (click)="alterarMes(+1)">prox.</button>
+        <button class="btn btn-primary" (click)="alterarMes(+1)">prox.</button>
       </div>
-  </div>
-  <div class="calendario-dias">
+    </div>
+    <div class="calendario-dias">
       <ng-container *ngFor="let dia of diasCalendario; let i = index">
-          <div *ngIf="i < 7">
-              <strong>{{ dia | date: 'EEEEE' }}</strong>
-          </div>
+        <div *ngIf="i < 7">
+          <strong>{{ dia | date : "EEEEE" }}</strong>
+        </div>
       </ng-container>
-      <div *ngFor="let dia of diasCalendario; let i = index"
-          class="calendario-dia"
-          [class.calendario-quebrar-linha]="i % 7 === 0"
-          [class.calendario-dia-nao-faz-parte-mes-atual]="dataAtual.getMonth() !== dia.getMonth()">
-          {{dia | date : 'dd'}}
+      <div
+        *ngFor="let dia of diasCalendario; index as i"
+        class="calendario-dia"
+        [class.calendario-quebrar-linha]="i % 7 === 0"
+        [class.calendario-dia-nao-faz-parte-mes-atual]="
+          dataAtual.getMonth() !== dia.getMonth()
+        "
+        [ngClass]="{'diaAtual': this.diaAtual.toString() == this.diasCalendario[i].toString(),
+        'diaPgt': this.clientes[0].dataPgt == this.diasCalendario[i].toString()}"
+
+        >
+        <a
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          (click)="getId(i)"
+        >
+          {{ dia | date : "dd" }}</a
+        >
       </div>
+    </div>
   </div>
+</div>
+
+<!-- Modal DIA -->
+<div
+  class="modal"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Dia {{ diaSelecionado }}
+        </h5>
+      </div>
+      <div class="vazio" *ngIf="clientesDia == 0">
+        <img src="../assets/empty.png">
+        <p class="ops"> <strong>Ooops.</strong> Nenhum associado encontrato </p>
+      </div>
+      <div *ngIf="clientesDia != 0" class="modal-body">
+        <div
+          class="accordion accordion-flush"
+          id="accordionFlushExample"
+          *ngFor="let cliente of clientesDia; index as i"
+        >
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#' + i"
+                aria-expanded="false"
+                aria-controls="flush-collapse1"
+              >
+                {{ cliente.nome | titlecase }}
+              </button>
+            </h2>
+            <div
+              id="{{ i }}"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFlushExample"
+            >
+              <div class="accordion-body">
+                <ul>
+                  <li *ngIf="cliente.telefone">
+                    <strong> Telefone:</strong> {{ cliente.telefone }}
+                  </li>
+                  <li *ngIf="!cliente.telefone">
+                    <strong> Telefone:</strong> Não informado.
+                  </li>
+                  <li *ngIf="cliente.modelo">
+                    <strong>Veículo: </strong> {{ cliente.modelo | titlecase }}
+                  </li>
+                  <li *ngIf="!cliente.modelo">
+                    <strong>Veículo: </strong> Não Informado.
+                  </li>
+                  <li *ngIf="cliente.placa">
+                    <strong>Placa: </strong> {{ cliente.placa | uppercase }}
+                  </li>
+                  <li *ngIf="!cliente.placa">
+                    <strong>Placa: </strong> Não informada.
+                  </li>
+                  <li *ngIf="cliente.valorPgt">
+                    <strong>Valor da Adesão: </strong> R$
+                    {{ cliente.valorPgt }},00
+                  </li>
+                  <li *ngIf="!cliente.valorPgt">
+                    <strong>Valor da Adesão: </strong> Não informado.
+                  </li>
+                  <li *ngIf="cliente.dataPgt">
+                    <strong>Data do Pagamento: </strong>
+                    {{ cliente.dataPgt | date : "dd/MM/yyyy" }}
+                  </li>
+                  <li *ngIf="!cliente.dataPgt">
+                    <strong>Data do Pagamento: </strong> Não informada.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          Fechar
+        </button>
+      </div>
+    </div>
   </div>
 </div>
