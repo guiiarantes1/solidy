@@ -17,6 +17,7 @@ import { GerenciarUserComponent } from './gerenciar-user/gerenciar-user.componen
 import { CalendarioComponent } from './calendario/calendario.component';
 import { registerLocaleData } from '@angular/common';
 import localeBr from '@angular/common/locales/pt';
+import { RelatorioComponent } from './relatorio/relatorio.component';
 registerLocaleData(localeBr, 'pt')
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ registerLocaleData(localeBr, 'pt')
     FooterComponent,
     AdicionarUserComponent,
     GerenciarUserComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    RelatorioComponent
   ],
   imports: [
     BrowserModule,
