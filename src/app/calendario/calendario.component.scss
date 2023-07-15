@@ -5,7 +5,6 @@
     color: black;
     border-radius: 50px;
     width: 100%;
-
   }
 
   .header {
@@ -64,7 +63,7 @@
       border-radius: 5px;
     }
 
-    .diaAtual{
+    .diaAtual {
       border: 1px solid #ccc;
       font-size: 18px;
       padding: 10px;
@@ -78,9 +77,8 @@
         border: 2px solid;
         border-color: red;
       }
-
     }
-    .diaPgt{
+    .diaPgt {
       border: 1px solid #ccc;
       font-size: 18px;
       padding: 10px;
@@ -90,9 +88,6 @@
         color: black;
         border-radius: 50px;
         width: 100% !important;
-
-
-
       }
     }
 
@@ -105,6 +100,82 @@
     .calendario-dia-nao-faz-parte-mes-atual {
       a {
         color: #b7b7b7;
+      }
+    }
+
+    .legenda {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+
+      .legendaDia {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-right: 15px;
+
+
+        .backgroundDia {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          width: fit-content;
+          border: 2px solid;
+          border-color: black;
+          padding: 5px;
+          margin-right: 10px;
+
+          p {
+            align-self: center;
+            color: black;
+            border-radius: 50px;
+            width: 100% !important;
+            padding: 8px 8px;
+            border: 2px solid;
+            border-color: red;
+            margin: 0;
+          }
+        }
+        .dia {
+          p{
+            margin: 0;
+          }
+        }
+      }
+
+      .legendaPgt {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+
+        .backgroundPgt {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          width: fit-content;
+          border: 2px solid;
+          border-color: black;
+          padding: 5px;
+          margin-right: 10px;
+          background-color: rgba(124, 189, 254, 0.993);
+          p {
+            align-self: center;
+            color: black;
+            border-radius: 50px;
+            width: 100% !important;
+            padding: 10px;
+            margin: 0;
+          }
+        }
+        .diaPagamento {
+          p{
+            margin: 0;
+          }
+        }
       }
     }
   }
