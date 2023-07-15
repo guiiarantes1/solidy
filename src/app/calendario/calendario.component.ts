@@ -30,14 +30,9 @@ export class CalendarioComponent implements OnInit {
     this.clientes.sort(function(a:any,b:any) {
       return a.nome < b.nome ? -1 : a.nome > b.nome ? 1 : 0;
   });
-    this.verificarDiasPgt()
+    this.verificarDiasPgt();
     this.construirCalendario();
-
-
-  this.verificarDiaAtual()
-
-
-
+    this.verificarDiaAtual();
   }
   construirCalendario() {
     const ano = this.dataAtual.getFullYear();
@@ -89,11 +84,6 @@ export class CalendarioComponent implements OnInit {
     }
     this.datasReceber = new Set(this.clientes.map((cliente:any) => cliente.dataPgt));
 
-    // console.log(this.clientes[0].dataPgt)
-    // console.log(this.clientes[0].dataPgt)
-    // console.log(typeof this.clientes[0].dataPgt)
-    // console.log(this.diasCalendario[26])
-    // console.log(typeof this.diasCalendario[26])
   }
 
   verificarDiaAtual(){
