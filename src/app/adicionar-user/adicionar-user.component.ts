@@ -6,6 +6,7 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { HeaderComponent } from '../shared/header/header.component';
 
 @Component({
   selector: 'app-adicionar-user',
@@ -20,6 +21,7 @@ export class AdicionarUserComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
+
     this.createForm(new Cliente());
     this.formInvalid=false;
     console.log(this.formInvalid)
@@ -54,8 +56,10 @@ export class AdicionarUserComponent implements OnInit {
         console.log(this.formInvalid)
       }
 
-
   }
+
+
+
 }
 
 export class Cliente {

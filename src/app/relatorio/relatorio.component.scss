@@ -1,0 +1,62 @@
+.main {
+  height: 100%;
+  .relatorio {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 8px rgb(0 0 0 / 20%);
+    border: 1px solid rgba(var(--lightGrey), 1);
+    .relatorio-header {
+      align-self: center;
+      border-bottom: 1px solid;
+      width: 90%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      border-color:rgb(192, 192, 193) ;
+
+      h3 {
+        text-align: center;
+        margin: 5px;
+        font-size: 24px;
+      }
+    }
+
+    .relatorio-body {
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 140px;
+      .tabela {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        transform: rotate(-90deg);
+        flex-direction: column;
+
+        width: fit-content;
+        .nomeMes {
+          margin-right: 5px;
+          transform: rotate(90deg);
+          p {
+            margin: 0;
+          }
+        }
+        .mesProgress {
+          display: flex;
+          width: auto;
+          height: 100%;
+          margin: 7px;
+          .progress {
+            width: 100px;
+            height: 19px;
+            margin: 0 !important;
+          }
+        }
+      }
+    }
+  }
+}

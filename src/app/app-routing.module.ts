@@ -7,7 +7,8 @@ import { CalendarioComponent } from './calendario/calendario.component';
 import { RelatorioComponent } from './relatorio/relatorio.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent},
   { path: 'add', component: AdicionarUserComponent},
   { path: 'users', component: GerenciarUserComponent},
   { path: 'calendario', component: CalendarioComponent},

@@ -20,7 +20,6 @@ export class GerenciarUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm(new Cliente());
-
     let clientesLocalStorage = localStorage.getItem('clientes');
     console.log(clientesLocalStorage);
     this.clientes =

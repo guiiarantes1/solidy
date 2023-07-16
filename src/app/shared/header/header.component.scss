@@ -1,6 +1,11 @@
 .background{
   width: 100%;
   height: fit-content;
+  button{
+    margin: 10px;
+    display: flex;
+    position: absolute;
+  }
   a{
     display: flex;
     width: auto;
