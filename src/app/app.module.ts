@@ -18,7 +18,9 @@ import { CalendarioComponent } from './calendario/calendario.component';
 import { registerLocaleData } from '@angular/common';
 import localeBr from '@angular/common/locales/pt';
 import { RelatorioComponent } from './relatorio/relatorio.component';
+import { NgChartsModule } from 'ng2-charts';
 registerLocaleData(localeBr, 'pt')
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +42,7 @@ registerLocaleData(localeBr, 'pt')
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
+    NgChartsModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]

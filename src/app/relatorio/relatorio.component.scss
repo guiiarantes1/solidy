@@ -9,14 +9,14 @@
     border: 1px solid rgba(var(--lightGrey), 1);
     .relatorio-header {
       background-color: rgb(197, 200, 198);
-      border-radius: 10px 10px 0 0 ;
+      border-radius: 10px 10px 0 0;
       align-self: center;
       border-bottom: 1px solid;
       width: 100%;
       align-items: center;
       justify-content: center;
       display: flex;
-      border-color:rgb(192, 192, 193) ;
+      border-color: rgb(192, 192, 193);
 
       h3 {
         text-align: center;
@@ -26,50 +26,29 @@
     }
 
     .relatorio-body {
-      margin: 10px;
-      display: flex;
-      height: 150px;
-      overflow-y: hidden;
-      overflow-x:visible !important;
+      overflow-x: scroll !important;
+      padding-top: 10px;
+      width: 98% !important;
 
       .tabela {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        transform: rotate(-90deg);
-        flex-direction: column;
 
-        .nomeMes {
-          margin-right: 5px;
-          transform: rotate(90deg);
-          p {
-            width: 28px;
-            margin: 0;
-            text-transform: capitalize;
-          }
-        }
-        .mesProgress {
-          display: flex;
-          width: 130px !important;
-          height: 100%;
-          margin: 7px;
-          .progress {
-            width: 100px !important;
-            height: 22px;
-            margin: 0 !important;
-          }
+        canvas {
+          padding-right: 150px;
+          background-color: rgb(255, 255, 255);
+          padding: 0 0 15px 0;
+
         }
       }
     }
 
-    .informacoes{
-      h3{
+    .informacoes {
+      h3 {
         font-size: 20px;
         text-align: center;
         background-color: rgb(197, 200, 198);
         padding: 10px;
       }
-      p{
+      p {
         font-size: 14px;
         margin: 10px;
       }
