@@ -1,32 +1,41 @@
-.global{
+::ng-deep body {
+  background-color: rgba(75, 75, 75, 0.489) !important;
+}
+.global {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
 
 
-  ::ng-deep app-home{
+  ::ng-deep app-home {
     height: inherit !important;
     display: flex;
     align-items: center;
-
   }
 
-  ::ng-deep app-adicionar-user{
+  ::ng-deep app-adicionar-user {
     height: inherit !important;
   }
 
- ::ng-deep app-gerenciar-user{
+  ::ng-deep app-gerenciar-user {
     height: inherit !important;
     display: flex;
     align-items: baseline;
   }
 
-  ::ng-deep app-calendario{
+  ::ng-deep app-calendario {
     height: inherit !important;
   }
 
-  ::ng-deep app-relatorio{
+  ::ng-deep app-relatorio {
     height: inherit !important;
+  }
+}
+
+@media (min-width: 550px) {
+  .global {
+    width: 550px !important;
+    margin: auto;
   }
 }

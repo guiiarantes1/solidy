@@ -1,5 +1,6 @@
 
 .home {
+  background-color:  white;
   a {
     text-decoration: none;
   }
@@ -145,5 +146,13 @@
       }
     }
 
+  }
+}
+
+@media (min-width: 550px) {
+
+  .mat-card  {
+    width: 253px !important;
+    margin: auto;
   }
 }
